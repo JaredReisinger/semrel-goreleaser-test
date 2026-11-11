@@ -20,7 +20,7 @@ rules:
   - type: revert
     bump: patch
 
-commit_changelog: true
+commit_changelog: false
 
 # Plugins run in order. condition → pre-tag → release (default).
 plugins:
@@ -30,9 +30,7 @@ plugins:
   - uses: "@semrel/generator-changelog-md"
     phase: pre-tag
     args:
-      # file: CHANGELOG.md
-      keep_releases: 999
-      # commit_changelog: true
+      keep_releases: "999"
 
 # Uncomment to enable additional features:
 # commit_changelog: true   # commit CHANGELOG.md before tagging
