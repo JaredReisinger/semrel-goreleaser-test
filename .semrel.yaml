@@ -30,6 +30,8 @@ plugins:
   - uses: "@semrel/generator-changelog-md"
     phase: pre-tag
     args:
+      # file: CHANGELOG.md
+      keep_releases: 999
       commit_changelog: true
 
 # Uncomment to enable additional features:
