@@ -1,0 +1,40 @@
+on:
+  push:
+    branches: [ main ]
+
+# concurrency:
+#   group: release
+#   cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - run: go mod download
+
+      - run: go tool semrel release --dry-run
+        id: semrel
+
+      # - uses: SemRels/semrel@v0
+      #   id: semrel
+      #   with:
+      #     dry-run: 'false'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: echo "semrel outputs: ${{ toJSON(steps.semrel.outputs) }}"
+
+      - name: Use outputs
+        if: steps.semrel.outputs.released == 'true'
+        run: echo "Released ${{ steps.semrel.outputs.version }}"
