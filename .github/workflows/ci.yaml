@@ -38,8 +38,10 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: 'echo "semrel outputs: ${{ toJSON(steps.semrel.outputs) }}"'
+      - run: printf "semrel outputs %s" "${OUTPUT_JSON}"
+        env:
+          OUTPUT_JSON: ${{ toJSON(steps.semrel.outputs) }}
 
       - name: Use outputs
         if: steps.semrel.outputs.released == 'true'
-        run: 'echo "Released ${{ steps.semrel.outputs.version }}"'
+        run: echo "Released ${{ steps.semrel.outputs.version }}"
