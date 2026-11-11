@@ -20,7 +20,7 @@ rules:
   - type: revert
     bump: patch
 
-commit_changelog: false
+commit_changelog: true
 
 # Plugins run in order. condition → pre-tag → release (default).
 plugins:
@@ -32,7 +32,7 @@ plugins:
     args:
       # file: CHANGELOG.md
       keep_releases: 999
-      commit_changelog: true
+      # commit_changelog: true
 
 # Uncomment to enable additional features:
 # commit_changelog: true   # commit CHANGELOG.md before tagging
