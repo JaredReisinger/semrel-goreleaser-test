@@ -20,12 +20,17 @@ rules:
   - type: revert
     bump: patch
 
+commit_changelog: false
+
 # Plugins run in order. condition → pre-tag → release (default).
 plugins:
   # - uses: "@semrel/condition-github-actions"
   #   phase: condition
   - uses: "@semrel/provider-github"
   - uses: "@semrel/generator-changelog-md"
+    phase: pre-tag
+    args:
+      commit_changelog: true
 
 # Uncomment to enable additional features:
 # commit_changelog: true   # commit CHANGELOG.md before tagging

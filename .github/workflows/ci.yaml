@@ -23,7 +23,7 @@ jobs:
 
       - run: go mod download
 
-      - run: go tool semrel release --dry-run
+      - run: go tool semrel release --github-output
         id: semrel
 
       # - uses: SemRels/semrel@v0
