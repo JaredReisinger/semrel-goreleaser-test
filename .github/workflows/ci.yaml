@@ -42,9 +42,11 @@ jobs:
         env:
           OUTPUT_JSON: ${{ toJSON(steps.semrel.outputs) }}
 
-      - name: Write release notes
-        if: steps.semrel.outputs.released == 'true'
-        run: printf "%s" "${{ steps.semrel.outputs.changelog }}" > .release-notes.md
+      - if: steps.semrel.outputs.released == 'true'
+        name: Push CHANGELOG and prep release notes
+        run: |
+          git push origin main
+          printf "%s" "${{ steps.semrel.outputs.changelog }}" > .RELEASE-NOTES.md
 
       - if: steps.semrel.outputs.released == 'true'
         uses: goreleaser/goreleaser-action@v7
@@ -53,6 +55,6 @@ jobs:
           # distribution: goreleaser
           # # 'latest', 'nightly', or a semver
           # version: "~> v2"
-          args: release --clean --release-notes .release-notes.md
+          args: release --clean --release-notes .RELEASE-NOTES.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
