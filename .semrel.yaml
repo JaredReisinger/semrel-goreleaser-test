@@ -31,12 +31,14 @@ plugins:
     phase: pre-tag
     args:
       keep_releases: "999"
+      commit_changelog: true
+      link_prs: true
+      link_commits: true
 
   # - uses: "@semrel/provider-github"
   - uses: "@semrel/provider-git"
     args:
       push_branch: true
-
 
 # Uncomment to enable additional features:
 # commit_changelog: true   # commit CHANGELOG.md before tagging

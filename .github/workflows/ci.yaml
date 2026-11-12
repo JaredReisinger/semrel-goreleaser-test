@@ -31,13 +31,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - uses: SemRels/semrel@v0
-      #   id: semrel
-      #   with:
-      #     dry-run: 'false'
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - run: printf "semrel outputs %s" "${OUTPUT_JSON}"
         env:
           OUTPUT_JSON: ${{ toJSON(steps.semrel.outputs) }}
@@ -45,6 +38,7 @@ jobs:
       - if: steps.semrel.outputs.released == 'true'
         name: Push CHANGELOG and prep release notes
         run: |
+          la -alF
           git push origin main
           printf "%s" "${{ steps.semrel.outputs.changelog }}" > .RELEASE-NOTES.md
 
