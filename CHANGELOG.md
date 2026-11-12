@@ -1,3 +1,4 @@
-# Changelog
+## v0.0.8 (2026-11-12)
 
-_(placeholder stub)_
+### Bug Fixes
+- fix: try again, stub CHANGELOG
