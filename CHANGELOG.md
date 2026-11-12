@@ -1,6 +1,7 @@
-# Changelog
+## v0.0.10 (2026-11-12)
 
-Here is some intro text.
+### Bug Fixes
+- fix: try CHANGELOG intro; try links
 
 ## v0.0.9 (2026-11-12)
 
