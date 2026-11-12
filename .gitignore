@@ -1,3 +1,5 @@
 # semrel
 .semrel-analytics.jsonl
 .semrel/
+# Added by goreleaser init:
+dist/
