@@ -38,7 +38,7 @@ jobs:
       - if: steps.semrel.outputs.released == 'true'
         name: Push CHANGELOG and prep release notes
         run: |
-          la -alF
+          ls -alF
           git push origin main
           printf "%s" "${{ steps.semrel.outputs.changelog }}" > .RELEASE-NOTES.md
 
