@@ -1,3 +1,8 @@
+## v0.0.11 (2026-11-12)
+
+### Bug Fixes
+- fix: try using templates; looking at the code, I think this is ignored
+
 ## v0.0.10 (2026-11-12)
 
 ### Bug Fixes
