@@ -39,7 +39,11 @@ jobs:
         name: Push CHANGELOG and prep release notes
         run: |
           ls -alF
-          git push origin main
+          echo "=== CHANGELOG.md ==="
+          cat CHANGELOG.md
+          echo "=== GIT STATUS ==="
+          git status --short
+          #git push origin main
           printf "%s" "${{ steps.semrel.outputs.changelog }}" > .RELEASE-NOTES.md
 
       - if: steps.semrel.outputs.released == 'true'
