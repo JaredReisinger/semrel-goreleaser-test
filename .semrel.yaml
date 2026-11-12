@@ -34,11 +34,6 @@ plugins:
       # link_prs: true
       # link_commits: true
 
-  # - uses: "@semrel/provider-github"
   - uses: "@semrel/provider-git"
     args:
       push_branch: true
-
-# Uncomment to enable additional features:
-# commit_changelog: true   # commit CHANGELOG.md before tagging
-# version_ceiling: "1.0.0" # cap releases below this version
