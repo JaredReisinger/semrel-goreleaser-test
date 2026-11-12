@@ -27,10 +27,18 @@ plugins:
   # - uses: "@semrel/condition-github-actions"
   #   phase: condition
 
+  - uses: "@semrel/generator-release-notes"
+    phase: generator
+    args:
+      template: .releasenotes.tmpl
+      max_commits: 999
+
   - uses: "@semrel/generator-changelog-md"
     phase: pre-tag
     args:
-      keep_releases: "999"
+      template: .changelog.tmpl
+      keep_releases: 999
+      max_commits: 999
       link_prs: true
       link_commits: true
 
