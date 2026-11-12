@@ -1,3 +1,7 @@
+# Changelog
+
+Here is some intro text.
+
 ## v0.0.9 (2026-11-12)
 
 ### Bug Fixes

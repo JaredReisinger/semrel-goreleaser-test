@@ -31,8 +31,8 @@ plugins:
     phase: pre-tag
     args:
       keep_releases: "999"
-      # link_prs: true
-      # link_commits: true
+      link_prs: true
+      link_commits: true
 
   - uses: "@semrel/provider-git"
     args:
